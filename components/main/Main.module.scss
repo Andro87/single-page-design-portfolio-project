@@ -40,21 +40,19 @@
 .main_skills_container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 182px);
+    grid-auto-rows: 182px;
     gap: 24px;
     margin-top: 32px;
     margin-bottom: 100px;
 
     @include breakpoint($medium) {
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(3, 182px);
         margin-top: 64px;
         margin-bottom: 120px;
     }
 
     @include breakpoint($large) {
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(2, 182px);
         margin-top: 80px;
         margin-bottom: 135px;
     }

@@ -2,16 +2,19 @@ import React from "react";
 import styles from "./Main.module.scss";
 
 //
-
 import { Skill, Btn } from "components";
-
-//
 import { skills } from "data/skills";
-//
+import { motion } from "framer-motion";
+import { mainAnimation, heroAnimation } from "motion/framer";
 
 export const Main: React.FunctionComponent = () => {
     return (
-        <main className={styles.main_container}>
+        <motion.main
+            className={styles.main_container}
+            variants={mainAnimation}
+            initial="hidden"
+            animate="visible"
+        >
             <div className={styles.main_wrap}>
                 <div className={styles.main_intro}>
                     <h1>Design solutions made easy</h1>
@@ -33,7 +36,13 @@ export const Main: React.FunctionComponent = () => {
                     ))}
                 </div>
 
-                <div className={styles.main_info_container}>
+                <motion.div
+                    className={styles.main_info_container}
+                    variants={heroAnimation}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                >
                     <div className={styles.main_info_picture}>
                         <img src="/assets/image-amy.webp" alt="" />
                     </div>
@@ -50,8 +59,8 @@ export const Main: React.FunctionComponent = () => {
                         </p>
                         <Btn color="red_btn" />
                     </div>
-                </div>
+                </motion.div>
             </div>
-        </main>
+        </motion.main>
     );
 };

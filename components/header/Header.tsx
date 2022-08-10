@@ -3,11 +3,18 @@ import styles from "./Header.module.scss";
 
 //
 import { Btn } from "components";
+import { motion } from "framer-motion";
+import { headerAnimation } from "motion/framer";
 //
 
 export const Header: React.FunctionComponent = () => {
     return (
-        <header className={styles.header_container}>
+        <motion.header
+            className={styles.header_container}
+            variants={headerAnimation}
+            initial="hidden"
+            animate="visible"
+        >
             <div className={styles.header_wrap}>
                 <img
                     src="./assets/logo.svg"
@@ -16,6 +23,6 @@ export const Header: React.FunctionComponent = () => {
                 />
                 <Btn color="black_btn" />
             </div>
-        </header>
+        </motion.header>
     );
 };

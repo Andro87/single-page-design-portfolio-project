@@ -3,11 +3,19 @@ import styles from "./Footer.module.scss";
 
 //
 import { Btn } from "components";
+import { motion } from "framer-motion";
+import { footerAnimation } from "motion/framer";
 //
 
 export const Footer: React.FunctionComponent = () => {
     return (
-        <footer className={styles.footer_container}>
+        <motion.footer
+            className={styles.footer_container}
+            variants={footerAnimation}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+        >
             <div className={styles.footer_wrap}>
                 <img
                     src="./assets/logo.svg"
@@ -16,6 +24,6 @@ export const Footer: React.FunctionComponent = () => {
                 />
                 <Btn color="black_btn" />
             </div>
-        </footer>
+        </motion.footer>
     );
 };

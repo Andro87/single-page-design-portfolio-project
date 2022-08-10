@@ -2,6 +2,9 @@ import React from "react";
 import styles from "./Book.module.scss";
 
 import { Btn } from "components";
+import { motion } from "framer-motion";
+import { bookAnimation } from "motion/framer";
+//
 
 export const Book: React.FunctionComponent = () => {
     return (
@@ -9,7 +12,13 @@ export const Book: React.FunctionComponent = () => {
             aria-label="Book a call"
             className={styles.section_book_container}
         >
-            <div className={styles.section_book_wrap}>
+            <motion.div
+                className={styles.section_book_wrap}
+                variants={bookAnimation}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+            >
                 <div className={styles.wrapper}>
                     <h4>Book a call with me</h4>
                     <p>
@@ -20,7 +29,7 @@ export const Book: React.FunctionComponent = () => {
                     </p>
                 </div>
                 <Btn color="red_btn" />
-            </div>
+            </motion.div>
         </section>
     );
 };
